@@ -9,7 +9,7 @@ RUN apt-get update && \
 	curl https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2 -o /postgresql-10.6.tar.bz2 && \
 	tar xvf /postgresql-10.6.tar.bz2 && \
 	cd /postgresql-10.6/contrib/cube && \
-	sed -i "s/#define CUBE_MAX_DIM (100)/#define CUBE_MAX_DIM (${A_DIMENSHION}/" cubedata.h && \
+	sed -i "s/#define CUBE_MAX_DIM (100)/#define CUBE_MAX_DIM (${A_DIMENSHION})/" cubedata.h && \
     USE_PGXS=true make && \
     USE_PGXS=true make install && \
     rm -rf /postgresql-10.6 && \
