@@ -1,6 +1,6 @@
 # pg350d
 
-Docker build of postgresql-9.6 changing the dimension limit for the cube extension, raising it to 350.
+Docker build of postgresql-10.6 changing the dimension limit for the cube extension, raising it to 128.
 
 This is needed to be able to work with words embedding with postgres.
 
@@ -26,25 +26,20 @@ your backups (and not upgrade postgres if you usually do so through dump/import)
 
 ## Download
 
-The image dockerhub page is [here](https://hub.docker.com/r/oelmekki/pg350d/).
+The image dockerhub page is [here](https://cloud.docker.com/repository/docker/shizacat/pg350d).
 
 To pull it:
 
 ```
-docker pull oelmekki/pg350d:9.6
+docker pull shizacat/pg350d:10.6
 ```
 
 
 ## Is it safe?
 
-Patching the hardcoded limit is [the recommended way in postgres doc](https://www.postgresql.org/docs/9.5/static/cube.html#AEN169535).
+Patching the hardcoded limit is [the recommended way in postgres doc](https://www.postgresql.org/docs/10/static/cube.html#AEN169535).
 
 I've been using it for several months on my main business, and didn't encounter any problem so far.
-
-
-## Variants
-
-If you want more than 350d and don't want to change it yourself, [@lisitsky made a 2000d variant](https://github.com/lisitsky/postgres-2kd).
 
 
 ## How to raise postgresql's cube extension dimensions limit?
